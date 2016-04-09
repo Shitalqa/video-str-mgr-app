@@ -1,0 +1,16 @@
+{
+  "name": "video-uploader-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "binaryjs": "^0.2.1",
+    "express": "^3.21.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "shital dhamne",
+  "license": "ISC"
+}

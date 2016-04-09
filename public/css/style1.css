@@ -1,0 +1,72 @@
+
+
+.jumbotron { 
+    background-image:url("image/image3.jpeg"); 
+    color: 	#606060;
+	background-size: cover;
+	padding-bottom: 0px;
+	font-family : verdana;
+	word-spacing: 2px;
+	
+	}
+
+.intro{
+	color: 	#606060;
+	font-family : verdana;
+	font-size: 23px;
+	padding-top: 100px;
+	padding-bottom:100px;
+	
+}
+
+
+.contact{
+	padding-top:30px;
+	background-color: #66CCCC;	
+	font-family : verdana;
+	font-size: 15px;
+}
+
+
+.slideanim {visibility:hidden;}
+.slide {
+    /* The name of the animation */
+    animation-name: slide;
+    -webkit-animation-name: slide;
+	
+    /* The duration of the animation */
+    animation-duration: 2s; 
+    -webkit-animation-duration: 2s;
+	
+    /* Make the element visible */
+    visibility: visible; 
+}
+
+/* Go from 0% to 100% opacity (see-through) and specify the percentage from when to slide in the element along the Y-axis */
+@-webkit-keyframes slide {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(100%);
+    } 
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    } 
+}
+
+.booth{
+	width :800px;
+	background:#ccc;
+	border:10px solid black;
+	margin:0px 0px 0px 280px;
+}
+
+	
+
+
+	
+
+
+
+
+	

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+	<!-- Different Screen compatibility with view scale  set to ratio of 1 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+	   <title>Video Upload</title>
+
+ <!-- Bootstrap Core CSS and JS-->
+			
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+			
+			<link rel="stylesheet" href="./css/style.css">
+                        
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+			
+			<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+			
+</head>
+
+	<body>
+		<!-- Jumbotron creates Heading -->
+		<div class="jumbotron text-center" style="background-color: white;height: 100%;margin-top: 0px;margin-bottom: 0px">
+
+		
+      <div class="container" style="background-image: url(image/uploadpage.jpeg);height:200px; ">
+				  <div class="row">
+					   <h1>Video Recorder and Streamer</h1> 
+					   <p>A website to record, view, upload and stream !</p> 
+				  </div>
+				
+        <!-- Bootsrap Grid , column size 6 with offset 3 for medium and xtra small screen -->
+				  
+          <div class="row">
+					     <div class="col-md-6 col-md-offset-3 col-xs-6  col-xs-offset-3 text-center">
+                                          <!--     <button onclick="testAPI()">Log In</button> -->   
+                    <fb:login-button autologoutlink="true" size="xlarge" scope="public_profile,email"   onlogin="checkLoginState();" padding-top="30px" >
+						        </fb:login-button>
+						        <h3 id = "status"> </h3>
+					     </div>
+				  </div>
+			</div>
+	
+	
+      <!-- Intro -->
+    
+
+      <div class="container-fluid intro text-center" style="color: #330000; text-shadow: 0px 0px 3px grey; background: linear-gradient(to bottom, white, #ccf992);height:380px;box-shadow: 0px 0px 20px grey">
+		
+		      <p><h3>The web application allows you to make your own video library...</h3></p>
+          <p><h3></h3></p>
+          <br><br>
+          <h2 style="color:maroon"><span> Advanced Software Engineering </span></h2><br>
+          <div class="col-md-6">
+                    <h3 style="color:maroon">Shital Dhamne</h3>
+                    <h3 style="color:maroon">Student ID: 84140</h3>
+          </div>
+        
+          <div class="col-md-6">
+                    <h3 style="color:maroon"></h3>
+                    <h3 style="color:maroon"></h3>
+          </div>
+	     </div>
+	
+  <!-- Contact -->
+
+	     <div class = "container-fluid contact text-right" style=" color: #330000; text-shadow: 0px 0px 3px grey; background-image: url(image/uploadpage.jpeg);height:200px;box-shadow: 0px 0px 30px grey">
+				    <h3> Contact Us </h3>
+				    <p><span class="glyphicon glyphicon-map-marker"></span> San Jose, CA</p>
+				    <p><span class="glyphicon glyphicon-phone"></span> +01 408 123 1234</p>
+				    <p><span class="glyphicon glyphicon-envelope"></span> videoFinalProject@ituproject.com</p> 
+	     </div>
+
+</div>
+    <!-- animation -->
+	<script>
+		$(window).scroll(function() {
+			$(".slideanim").each(function(){
+				var pos = $(this).offset().top;
+				var winTop = $(window).scrollTop();
+				if (pos < winTop + 1000) {
+					$(this).addClass("slide");
+				}
+			});
+		});
+	</script>
+
+  
+	<!--Facebook authentication -->
+	<script>
+           
+  // This is called with the results from from FB.getLoginStatus().
+  function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      // The person is logged into Facebook, but not your app.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    } else {
+      // The person is not logged into Facebook, so we're not sure if
+      // they are logged into this app or not.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into Facebook.';
+		
+			document.getElementById('status').appendChild(document.getElementById('appear'));
+    }
+  }
+
+  // This function is called when someone finishes with the Login
+  // Button.  See the onlogin handler attached to it in the sample
+  // code below.
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
+
+  window.fbAsyncInit = function() {
+  FB.init({
+   //appId      : '943379089116175',
+    appId      : '1008608599221765',
+    cookie     : true,  // enable cookies to allow the server to access 
+                        // the session
+    xfbml      : true,  // parse social plugins on this page
+    version    : 'v2.5' // use graph api version 2.5
+  });
+
+  // Now that we've initialized the JavaScript SDK, we call 
+  // FB.getLoginStatus().  This function gets the state of the
+  // person visiting this page and can return one of three states to
+  // the callback you provide.  They can be:
+  //
+  // 1. Logged into your app ('connected')
+  // 2. Logged into Facebook, but not your app ('not_authorized')
+  // 3. Not logged into Facebook and can't tell if they are logged into
+  //    your app or not.
+  //
+  // These three cases are handled in the callback function.
+
+  FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+  });
+
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+		var host = location.origin;
+		window.location.replace(host+'/video.html');
+
+		
+    });
+  }
+  /* 
+    
+    function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    document.getElementById('status').innerHTML =
+        'Thanks for logging in Dear !';
+		var host = location.origin;
+		window.location.replace(host+'/video.html');
+                } */
+    
+  $(window).scroll(function() {
+  $(".slideanim").each(function(){
+    var pos = $(this).offset().top;
+
+    var winTop = $(window).scrollTop();
+    if (pos < winTop + 600) {
+      $(this).addClass("slide");
+    }
+  });
+});
+</script>
+   
+		
+</body>
+</html>
